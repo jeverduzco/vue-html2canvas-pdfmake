@@ -1,6 +1,7 @@
 <template>
 <!-- en el div debemos poner una referencia -->
   <div class="hello" ref="capture">
+    <img alt="Vue logo" src="../assets/logo.png">
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -90,6 +91,6 @@ a {
   color: #42b983;
 }
 .hello{
-  width: 500px;
+  width: 612px;
 }
 </style>
