@@ -1,5 +1,6 @@
 <template>
-  <div class="hello">
+<!-- en el div debemos poner una referencia -->
+  <div class="hello" ref="capture">
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -27,14 +28,47 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <!-- boton para imprimir el contenido del div -->
+    <button @click="downloadHelloWorld">Print HelloWorld</button>
   </div>
 </template>
 
 <script>
+// importamos html2canvas
+import html2canvas from 'html2canvas'
+// inportamos pdfmake
+var pdfMake = require('pdfmake/build/pdfmake.js');
+var pdfFonts = require('pdfmake/build/vfs_fonts.js');
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+    data() {
+    return {
+      pdf: null
+    }
+  },
+  methods: {
+    downloadHelloWorld () {
+      let vc = this
+      // capturamos el div con html2canvas para despues descargarlo con pdfmake
+      html2canvas(vc.$refs.capture).then(canvas => {
+          var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500,
+                    }],
+                    pageSize: 'LETTER',
+                };
+                pdfMake.createPdf(docDefinition).download("helloworld.pdf");
+      }).catch((error) => {
+        // eslint-disable-next-line no-console
+        console.log("Erorr descargando Hello World", error)
+      });
+    }
   }
 }
 </script>
@@ -54,5 +88,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello{
+  width: 500px;
 }
 </style>

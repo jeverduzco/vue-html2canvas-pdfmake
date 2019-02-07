@@ -1,4 +1,4 @@
-# vue-html2canvas-jspdf
+# vue-html2canvas-pdfmake
 
 ## Project setup
 ```

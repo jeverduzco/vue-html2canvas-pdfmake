@@ -1,5 +1,5 @@
 {
-  "name": "vue-html2canvas-jspdf",
+  "name": "vue-html2canvas-pdfmake",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "html2canvas": "^1.0.0-alpha.12",
+    "pdfmake": "^0.1.50",
     "vue": "^2.5.22"
   },
   "devDependencies": {
