@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "html2canvas": "^1.0.0-alpha.12",
-    "pdfmake": "^0.1.50",
+    "pdfmake": "^0.1.56",
     "vue": "^2.5.22"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-service": "^3.8.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
